@@ -7,7 +7,7 @@ const role = document.querySelector(".role");
 
 const testimonial = [
   {
-    img: "./images/image-tanya.jpg",
+    img: "images/image-tanya.jpg",
     name: "Tanya Sinclair",
     role: "UX Engineer",
     description: `"I’ve been interested in coding for a while but never taken the
@@ -15,7 +15,7 @@ const testimonial = [
         the job of my dreams and so excited about the future."`,
   },
   {
-    img: "./images/image-john.jpg",
+    img: "images/image-john.jpg",
     name: "John Tarkpor",
     role: "Junior Front-end Developer",
     description: `"If you want to lay the best
@@ -25,29 +25,27 @@ const testimonial = [
   },
 ];
 
-window.addEventListener("DOMContentLoaded", function () {
-  let currentItem = 0;
+let currentItem = 0;
 
-  function showPerson(item) {
-    let person = testimonial[currentItem];
-    img.src = person.img;
-    desc.textContent = person.description;
-    name.textContent = person.name;
-    role.textContent = person.role;
+function showPerson(item) {
+  let person = testimonial[currentItem];
+  img.src = person.img;
+  desc.textContent = person.description;
+  name.textContent = person.name;
+  role.textContent = person.role;
+}
+
+prev.addEventListener("click", () => {
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = testimonial.length - 1;
   }
-
-  prev.addEventListener("click", () => {
-    currentItem--;
-    if (currentItem < 0) {
-      currentItem = testimonial.length - 1;
-    }
-    showPerson(currentItem);
-  });
-  next.addEventListener("click", () => {
-    currentItem++;
-    if (currentItem > testimonial.length - 1) {
-      currentItem = 0;
-    }
-    showPerson(currentItem);
-  });
+  showPerson(currentItem);
+});
+next.addEventListener("click", () => {
+  currentItem++;
+  if (currentItem > testimonial.length - 1) {
+    currentItem = 0;
+  }
+  showPerson(currentItem);
 });
