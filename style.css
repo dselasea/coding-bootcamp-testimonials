@@ -18,6 +18,8 @@ body {
   color: var(--dark-blue);
   font-family: "Inter", sans-serif;
   width: 100%;
+
+  position: relative;
 }
 
 .profile-img {
@@ -37,6 +39,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.curve {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 100%;
+  z-index: -1;
 }
 
 .image-content {
